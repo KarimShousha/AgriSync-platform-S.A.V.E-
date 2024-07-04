@@ -67,4 +67,14 @@
     margin-bottom: 15px;
   }
 
+
+  .register-link{
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #ffa500;
+    text-decoration: none;
+    
+  }
+
   
