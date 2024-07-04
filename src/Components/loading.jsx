@@ -1,15 +1,15 @@
-
-// src/components/Loading.jsx
-
 import React from 'react';
-import "../Components/css/loading.css"
+import './css/loading.css';
+import loadingImage from '../images/loading.png'
 
-const Loading = () => {
+const LoadingScreen = ({ imageUrl }) => {
   return (
     <div className="loading-screen">
-      <h2>Loading...</h2>
+      <div className="loader">
+        <img src={loadingImage} alt="Loading" className="rotating-image" />
+      </div>
     </div>
   );
-};
+}
 
-export default Loading;
+export default LoadingScreen;
