@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+body{
+z-index: -2;
+margin-top: 1rem;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.home-content {
+    background-color: white;
+}
+ 
+.home-content h1{
+    color: white;
+    font-size: 42px;
+    z-index: -2;
+    padding: 1rem;
+}
+
+.home-content p{
+    color:white;
+    font-size: 28px;
+    padding: 1rem;
+}
+
+.home-content h3{
+    color:white;
+    font-size: 28px;
+    padding: 1rem;
+}
+
+/* Base styles */
+.HPic-1 {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    height: 75vh; /* Responsive height based on viewport */
+    align-items: center;
+    margin-top: -2rem;
+}
+
+.image1 {
+    position: relative;
+    width: 100%; /* Adjust to fit your layout */
+    height: 100%; /* Adjust to fit your layout */
+    background-image: url('../home-1.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+.image1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.9) 25%, rgba(255,255,255,0) 100%);
+}
+
+.home1card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 25%; /* Adjust size as needed */
+    height: 60%; /* Adjust size as needed */
+    left: 28%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+
+.pivotHeader {
+    color: #ffa500; /* Orange color */
+    margin-bottom: 15px;
+}
+
+.home1card p {
+    color: #333; /* Dark grey color */
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home1card button {
+    background-color: #ffa500; /* Orange color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home1card button:hover {
+    background-color: #cc8400; /* Darker orange color on hover */
+}
+
+/* Responsive adjustments */
+
+@media screen and (max-width: 1350px) {
+    .home1card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 35%; /* Adjust size as needed */
+        height: 60%; /* Adjust size as needed */
+        left: 28%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .home1card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 38%; /* Adjust size as needed */
+        height: 60%; /* Adjust size as needed */
+        left: 32%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .home1card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 42%; /* Adjust size as needed */
+        height: 60%; /* Adjust size as needed */
+        left: 35%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 703px) {
+    .home1card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 50%; /* Adjust size as needed */
+        height: 60%; /* Adjust size as needed */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .home1card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 65%; /* Adjust size as needed */
+        height: 60%; /* Adjust size as needed */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home1card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 75%; /* Adjust size as needed */
+        height: 60%; /* Adjust size as needed */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.35); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+
+
+/*section 2*/
+
+.black-section {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 50px 10%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -3rem;
+}
+
+.info-block {
+    width: 48%; /* Adjust based on your layout needs */
+    padding: 20px;
+}
+
+.info-block h2 {
+    color: #ffa500; /* Yellow color for numbers */
+    font-size: 60px; /* Large font size for visual impact */
+    margin-bottom: 0;
+}
+
+.info-block h3 {
+    font-size: 24px; /* Substantial size for subheaders */
+    color: #ffa500; /* Yellow color */
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.info-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff; /* White color text for readability */
+}
+
+@media (max-width: 768px) {
+    .black-section {
+        flex-direction: column;
+    }
+
+    .info-block {
+        width: 97%;
+        margin-bottom: 20px;
+    }
+}
+
+.ThirdSection {
+    display: flex;
+    flex-direction: column; /* Stack blocks vertically */
+    justify-content: center; /* Center content vertically and horizontally */
+    align-items: center; /* Center align items */
+    background-color: rgb(255, 165, 0); /* Background color */
+    padding: 20px; /* Uniform padding */
+    width: auto;
+}
+
+.contentBlock {
+    display: flex;
+    width: 100%; /* Ensure content block takes full width */
+    flex-direction: row; /* Default to horizontal layout */
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Center content within each block */
+    margin: 20px 0; /* Vertical margin for spacing between blocks */
+}
+
+.contentBlock:nth-child(2) {
+    flex-direction: row-reverse; /* Reversed order for the second block */
+}
+
+.textBlock {
+    width: 60%; /* Width of text blocks */
+    text-align: left; /* Align text to the left */
+    padding: 0 20px; /* Padding for spacing around the text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the text vertically */
+    color: black;
+    
+}
+
+.textBlock h2 {
+    font-size: 60px; /* Large font size for visual impact */
+}
+
+.textBlock h3 {
+    font-size: 24px; /* Substantial size for subheaders */
+
+}
+
+.textBlock p {
+    font-size: 16px;
+    
+}
+
+.pivot1, .pivot2 {
+    width: 40%; /* Width of the images */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 3em; /* Space around the images */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 990px) {
+    .ThirdSection {
+        flex-direction: column; /* Stack content blocks vertically */
+    }
+
+    .contentBlock {
+        flex-direction: column; /* Stack image and text vertically within each block */
+        align-items: center; /* Center content */
+    }
+
+    .contentBlock:nth-child(2) {
+        flex-direction: column; /* Stack image and text vertically for the second block */
+    }
+
+    .textBlock {
+        width: 100%; /* Full width for better mobile readability */
+        text-align: center; /* Center text for mobile */
+        padding: 20px; /* Adjust padding */
+        margin-top: -5rem;
+    }
+
+    .pivot1, .pivot2 {
+        width: 80%; /* Larger images for better visibility on small screens */
+        margin: 20px 0; /* Adjust spacing around images */
+    }
+}
+
+
+/* @media screen and (max-width: 1024px){
+    .home-content{
+        position:inherit;
+        z-index: -2;
+    }
+    .home-content h1{
+       position: relative;
+       z-index: -2;
+    }
+    
+    .home-content p{
+        z-index: -2;
+        padding-left: 1rem;
+
+    }
+    
+    .home-content h3{
+        z-index: -2;
+
+    }
+}
+ */

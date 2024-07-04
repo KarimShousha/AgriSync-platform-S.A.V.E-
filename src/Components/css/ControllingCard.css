@@ -1,0 +1,36 @@
+.control-container {
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    position: relative;
+    height: 100vh; /* Updated to fill the viewport height */
+    font-size: 30px;
+    display: block;
+    padding-bottom: 1rem;
+    width: 100%;
+    overflow-y: auto; /* Allows internal scrolling */
+}
+
+.title-checkbox {
+    gap: 5rem;
+    border: 2px solid rgb(230, 230, 230);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 2rem;
+    position: relative;
+    top: 2rem;
+}
+
+.title-checkbox p {
+    margin: 0.8rem;
+    margin-right: 10px;
+    color: rgb(230, 230, 230);
+    font-size: 2rem;
+}
+
+.control-container h2 {
+    color: rgb(230, 230, 230);
+}
