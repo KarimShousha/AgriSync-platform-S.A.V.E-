@@ -93,6 +93,12 @@ html, body {
     text-align: center;
     margin-bottom: 20px;
 }
+.home1card h3 {
+    color: #333; /* Dark grey color */
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 .home1card button {
     background-color: #ffa500; /* Orange color */
