@@ -19,7 +19,7 @@ export default function Controlling() {
     useEffect(() => {
         const postInitialState = async () => {
             try {
-                const response = await axios.post('https://project-save.vercel.app/api/controls/', state);
+                const response = await axios.post('https://backendgrad-eta.vercel.app/api/controls/', state);
                 console.log('Initial state posted:', response.data);
             } catch (error) {
                 console.error('Error posting initial state:', error);
@@ -34,7 +34,7 @@ export default function Controlling() {
         const newState = { ...state, [dev]: state[dev] === "ON" ? "OFF" : "ON" };
 
         try {
-            const response = await axios.post('https://project-save.vercel.app/api/controls/', newState);
+            const response = await axios.post('https://backendgrad-eta.vercel.app/api/controls/', newState);
             console.log('Response body:', response.data);
             console.log(`Successfully updated state for ${dev}`);
         } catch (error) {
@@ -48,15 +48,17 @@ export default function Controlling() {
     return (
         <Fragment>
             <div className="Controlling-container">
-                <div className='title-checkbox'>
+
+
+            <div className='title-checkbox'>
                     <p>System mode</p>
                     <SwitchButton type="checkbox" onClick={handleButton("SystemMod")} />
                 </div>
-
-                 <div className='title-checkbox'>
+                
+                <div className='title-checkbox'>
                     <p>Water Pump</p>
                     <SwitchButton type="checkbox" onClick={handleButton("waterControl")} />
-                </div>
+                </div>  
             </div>
         </Fragment>
     );
