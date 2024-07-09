@@ -49,13 +49,13 @@ export default function Controlling() {
         <Fragment>
             <div className="Controlling-container">
                 <div className='title-checkbox'>
-                    <p>Water Pump</p>
-                    <SwitchButton type="checkbox" onClick={handleButton("waterControl")} />
-                </div>
-
-                <div className='title-checkbox'>
                     <p>System mode</p>
                     <SwitchButton type="checkbox" onClick={handleButton("SystemMod")} />
+                </div>
+
+                 <div className='title-checkbox'>
+                    <p>Water Pump</p>
+                    <SwitchButton type="checkbox" onClick={handleButton("waterControl")} />
                 </div>
             </div>
         </Fragment>
