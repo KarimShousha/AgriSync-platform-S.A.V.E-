@@ -12,7 +12,7 @@ export default function HomeContent(){
     <div className="home1card">
         <h2 className='pivotHeader'>AgriSync Platform</h2>
         <p>AgriSync streamlines irrigation management, providing insights and precision control for optimal crop yield.</p>
-        <h3>Supervised by Prof. Dr. Heba Youssef Soliman</h3>
+        <h3>Supervised by Dr. Heba Youssef Soliman</h3>
     </div>
     </div>
     </div>
