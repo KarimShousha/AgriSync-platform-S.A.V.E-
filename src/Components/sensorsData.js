@@ -1,74 +1,81 @@
-
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const TemperatureReading = await axios.get('https://project-save.vercel.app/api/readings/temperature');
-const HumidityReading = await axios.get('https://project-save.vercel.app/api/readings/humidity');
-const TDSReading = await axios.get('https://project-save.vercel.app/api/readings/WaterTds');
-const TurReading = await axios.get('https://project-save.vercel.app/api/readings/waterturbidity');
-const WaterLevelReading = await axios.get('https://project-save.vercel.app/api/readings/waterlevel');
-const SoilMoistureReading = await axios.get('https://project-save.vercel.app/api/readings/soilmoisture');
-const FlameReading = await axios.get('https://project-save.vercel.app/api/readings/flamesensor');
-const MotionReading = await axios.get('https://project-save.vercel.app/api/readings/motion');
-
-const LPGReading = await axios.get('https://project-save.vercel.app/api/gases/LPG');
-const NH4Reading = await axios.get('https://project-save.vercel.app/api/gases/NH4');
-const COReading = await axios.get('https://project-save.vercel.app/api/gases/CO');
-const CH4Reading = await axios.get('https://project-save.vercel.app/api/gases/CH4');
-const H2Reading = await axios.get('https://project-save.vercel.app/api/gases/H2');
-
-const diseaseName = await axios.get('https://project-save.vercel.app/api/Disease/disease');
-const diseasePer = await axios.get('https://project-save.vercel.app/api/Disease/diseaseper');
+const fetchData = async (url) => {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching data from ${url}:`, error);
+    return [];
+  }
+};
 
 const getSafeReading = (data, key) => {
-  // Filter out empty objects and objects that don't have the key
   const validItems = data.filter(item => item && item[key] != null);
   const lastItem = validItems[validItems.length - 1];
   return lastItem ? Number(lastItem[key]?.toFixed(15)) : 0;
 };
 
+const TemperatureReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/temperature');
+const HumidityReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/humidity');
+const TDSReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/WaterTds');
+const TurReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/waterturbidity');
+const WaterLevelReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/waterlevel');
+const SoilMoistureReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/soilmoisture');
+const FlameReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/flamesensor');
+const MotionReading = await fetchData('https://backendgrad-eta.vercel.app/api/readings/motion');
+
+const LPGReading = await fetchData('https://backendgrad-eta.vercel.app/api/gases/LPG');
+const NH4Reading = await fetchData('https://backendgrad-eta.vercel.app/api/gases/NH4');
+const COReading = await fetchData('https://backendgrad-eta.vercel.app/api/gases/CO');
+const CH4Reading = await fetchData('https://backendgrad-eta.vercel.app/api/gases/CH4');
+const H2Reading = await fetchData('https://backendgrad-eta.vercel.app/api/gases/H2');
+
+const diseaseName = await fetchData('https://backendgrad-eta.vercel.app/api/Disease/disease');
+const diseasePer = await fetchData('https://backendgrad-eta.vercel.app/api/Disease/diseaseper');
+
 export const waterData = [
   {
     name: "Total Dissolved Solids",
-    reading: `${getSafeReading(TDSReading.data, 'WaterTds')} ppm`
+    reading: `${getSafeReading(TDSReading, 'WaterTds')} ppm`
   },
   {
     name: "Turbidity",
-    reading: `${getSafeReading(TurReading.data, 'WaterTurbidity')} NTU`
+    reading: `${getSafeReading(TurReading, 'WaterTurbidity')} NTU`
   },
   {
     name: "Water Level",
-    reading: `${getSafeReading(WaterLevelReading.data, 'WaterLevel')}%`
+    reading: `${getSafeReading(WaterLevelReading, 'WaterLevel') *100}%`
   }
 ];
 
 export const gasData = [
   {
     name: "LPG",
-    reading: `${getSafeReading(LPGReading.data, 'LPG')} ppm`
+    reading: `${getSafeReading(LPGReading, 'LPG')} ppm`
   },
   {
     name: "NH4",
-    reading: `${getSafeReading(NH4Reading.data, 'NH4')} ppm`
+    reading: `${getSafeReading(NH4Reading, 'NH4')} ppm`
   },
   {
     name: "CO",
-    reading: `${getSafeReading(COReading.data, 'CO')} ppm`
+    reading: `${getSafeReading(COReading, 'CO')} ppm`
   },
   {
     name: "CH4",
-    reading: `${getSafeReading(CH4Reading.data, 'CH4')} ppm`
+    reading: `${getSafeReading(CH4Reading, 'CH4')} ppm`
   },
   {
     name: "H2",
-    reading: `${getSafeReading(H2Reading.data, 'H2')} ppm`
+    reading: `${getSafeReading(H2Reading, 'H2')} ppm`
   }
 ];
 
 export const soilData = [
   {
     name: "Soil Moisture",
-    reading: `${getSafeReading(SoilMoistureReading.data, 'SoilMoisture')}`
+    reading: `${getSafeReading(SoilMoistureReading, 'SoilMoisture')}`
   }
 ];
 
@@ -76,23 +83,23 @@ export const otherData = [
   {
     name: "Temperature and Humidity",
     reading: {
-      temperature: `${Math.round(TemperatureReading.data?.[TemperatureReading.data.length - 1]?.Temperature || 0)} C`,
-      humidity: `${Math.round(HumidityReading.data?.[HumidityReading.data.length - 1]?.Humidity || 0)} %`
+      temperature: `${Math.round(TemperatureReading?.[TemperatureReading.length - 1]?.Temperature || 0)} C`,
+      humidity: `${Math.round(HumidityReading?.[HumidityReading.length - 1]?.Humidity || 0)} %`
     }
   },
   {
     name: "Flame",
-    reading: FlameReading.data?.[FlameReading.data.length - 1]?.FlameSensor || 'No flame data available'
+    reading: FlameReading?.[FlameReading.length - 1]?.FlameSensor || 'No Fire'
   },
   {
     name: "Motion",
-    reading: MotionReading.data?.[MotionReading.data.length - 1]?.MotionSensor || 'No motion'
+    reading: MotionReading?.[MotionReading.length - 1]?.MotionSensor || 'No motion'
   }
 ];
 
 export const AI = [
   {
     name: "Disease Name",
-    reading: `${diseaseName.data?.[diseaseName.data.length - 1]?.DiseaseName || 'No disease data available'} and The Confidence: ${Math.round(diseasePer.data?.[diseasePer.data.length - 1]?.DiseasePer || 0)}%`
+    reading: `${diseaseName?.[diseaseName.length - 1]?.DiseaseName || 'No disease data available'} and The Confidence: ${Math.round(diseasePer?.[diseasePer.length - 1]?.DiseasePer || 0)}%`
   }
 ];
