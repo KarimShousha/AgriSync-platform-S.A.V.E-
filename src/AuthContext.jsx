@@ -1,5 +1,3 @@
-
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -13,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('https://project-save.vercel.app/api/users');
+        const response = await axios.get('https://backendgrad-eta.vercel.app/api/users');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -34,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.get('https://project-save.vercel.app/api/users');
+      const response = await axios.get('https://backendgrad-eta.vercel.app/api/users');
       
       console.log('HTTP response data:', response.data);
 
@@ -68,7 +66,7 @@ export const AuthProvider = ({ children }) => {
         throw new Error('Username is already taken');
       } else {
         const newUser = { uName: username, uEmail: email, uPassword: password, uRole: role };
-        await axios.post('https://project-save.vercel.app/api/users', newUser);
+        await axios.post('https://backendgrad-eta.vercel.app/api/users', newUser);
         setUsers([...users, newUser]);
       }
     } catch (error) {
